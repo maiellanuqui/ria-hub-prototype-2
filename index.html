@@ -130,10 +130,6 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
   box-sizing: border-box;
 }
 
-@media (max-width: 1050px) { .qa-grid { grid-template-columns: repeat(3, 1fr); } }
-
-@media (max-width: 900px) { .stats-strip { grid-template-columns: repeat(2, 1fr); } }
-
 /* ── TWO-COL LAYOUT ── */
 .two-col {
   display: grid;
@@ -168,7 +164,27 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
 }
 .card-meta { font-size: 11px; color: #aaa; }
 
-/* ── FILTER BAR ── */
+/* ── DROPDOWN ITEM STYLING ── */
+.dd-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.12s;
+  cursor: pointer;
+}
+.dd-item:hover { background: #fff8f3; }
+.dd-label {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+.dd-item:hover .dd-label { color: #f60; }
 
 /* ── TRANSACTION TABLE ── */
 .tx-table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -234,124 +250,10 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
 .rpt-pill.active { background: #7c3aed; border-color: #7c3aed; color: #fff; }
 .rpt-pill.active svg { stroke: #fff; }
 
-/* ── TOOLS QUICK PANEL PILLS ── */
-.tls-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 1.5px solid #e0e0e0;
-  background: #fff;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #555;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-.tls-pill:hover { border-color: #2563eb; color: #2563eb; background: #eff4ff; }
-.tls-pill.active { background: #2563eb; border-color: #2563eb; color: #fff; }
-.tls-pill.active svg { stroke: #fff; }
-
-/* ── HELP QUICK PANEL PILLS ── */
-.hlp-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 1.5px solid #e0e0e0;
-  background: #fff;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #555;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-.hlp-pill:hover { border-color: #16a34a; color: #16a34a; background: #f0fdf4; }
-.hlp-pill.active { background: #16a34a; border-color: #16a34a; color: #fff; }
-.hlp-pill.active svg { stroke: #fff; }
 
 /* ── REPORT PANEL LINKS ── */
 .rpt-panel { padding: 10px 14px 12px; }
-.rpt-links-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-}
 
-/* ── WIDGET CARDS ── */
-.widget-card {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.widget-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  border-bottom: 1px solid #eee;
-}
-.widget-icon {
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.widget-title {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #222;
-}
-.widget-body {
-  padding: 8px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-.widget-link {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 7px 8px;
-  border-radius: 7px;
-  text-decoration: none;
-  transition: background 0.12s;
-  cursor: pointer;
-}
-.widget-link:hover { background: #f7f7f7; }
-.widget-link-icon {
-  width: 28px; height: 28px;
-  border-radius: 7px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.widget-link-label {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #222;
-  line-height: 1.3;
-}
-.widget-link:hover .widget-link-label { color: #f60; }
-.widget-link-sub {
-  font-size: 11px;
-  color: #aaa;
-  margin-top: 1px;
-}
-.widget-sub-group {
-  font-size: 10px;
-  font-weight: 700;
-  color: #ccc;
-  text-transform: uppercase;
-  letter-spacing: 0.7px;
-  padding: 6px 8px 3px;
-}
 
 /* ── REPORT / RESOURCE GROUPS ── */
 .rpt-btn-item {
@@ -374,10 +276,6 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
   border-color: #fdd8b8;
 }
 .rpt-btn-item:hover svg { opacity: 1; color: #f60; }
-
-/* ── REPORTS GRID ── */
-.rpt-btn { display: flex; align-items: center; gap: 8px; padding: 9px 11px; border-radius: 6px; border: 1px solid #eee; background: #fff; font-size: 12.5px; font-weight: 600; color: #333; cursor: pointer; font-family: Arial, sans-serif; transition: border-color 0.15s, color 0.15s, background 0.15s; }
-.rpt-btn:hover { border-color: #f60; color: #f60; background: #fff8f3; }
 
 /* ── QUICK DROPDOWN ENHANCEMENTS ── */
 @keyframes quickDropIn {
@@ -440,24 +338,6 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
   color: #666;
 }
 .tx-tab.active .tx-tab-count { background: #fff3e8; color: #f60; }
-/* ── REPORTS CARD ── */
-.rpt-section { padding: 10px 14px 6px; }
-.rpt-link {
-  display: block;
-  font-size: 13px;
-  color: #1a4fa0;
-  text-decoration: none;
-  padding: 4px 0;
-  line-height: 1.4;
-  transition: color 0.12s;
-}
-.rpt-link:hover { color: #f60; text-decoration: underline; }
-
-/* ── RATE MODAL ── */
-@keyframes modalIn {
-  from { opacity:0; transform:scale(0.95) translateY(8px); }
-  to   { opacity:1; transform:scale(1)    translateY(0); }
-}
 
 </style>
 </head>
@@ -579,17 +459,17 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
             <span style="font-size:11.5px;font-weight:800;color:#c45000;text-transform:uppercase;letter-spacing:0.5px;">Account</span>
           </div>
           <div style="padding:8px 10px 10px;">
-            <a href="account_statement.html" style="display:block;padding:9px 10px;color:#333;text-decoration:none;border-radius:7px;font-size:13px;font-weight:500;transition:background 0.12s,color 0.12s;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='transparent';this.style.color='#333'">
-              View my balance
+            <a href="account_statement.html" class="dd-item">
+              <div class="dd-label">View my balance</div>
             </a>
-            <a href="#" style="display:block;padding:9px 10px;color:#333;text-decoration:none;border-radius:7px;font-size:13px;font-weight:500;transition:background 0.12s,color 0.12s;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='transparent';this.style.color='#333'">
-              Training Courses
+            <a href="#" class="dd-item">
+              <div class="dd-label">Training Courses</div>
             </a>
-            <a href="#" style="display:block;padding:9px 10px;color:#333;text-decoration:none;border-radius:7px;font-size:13px;font-weight:500;transition:background 0.12s,color 0.12s;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='transparent';this.style.color='#333'">
-              Request New User
+            <a href="#" class="dd-item">
+              <div class="dd-label">Request New User</div>
             </a>
-            <a href="#" style="display:block;padding:9px 10px;color:#333;text-decoration:none;border-radius:7px;font-size:13px;font-weight:500;transition:background 0.12s,color 0.12s;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='transparent';this.style.color='#333'">
-              View Inquiries
+            <a href="#" class="dd-item">
+              <div class="dd-label">View Inquiries</div>
             </a>
           </div>
         </div>
@@ -620,10 +500,18 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
                 <span style="color:#555;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
                 <span style="font-size:11px;font-weight:800;color:#333;text-transform:uppercase;letter-spacing:0.5px;">Money Transfer Tools</span>
               </div>
-              <a href="pending_orders.html" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Pending Orders</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Payout Partner Lookup</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Print Order Form</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Manage Customers</a>
+              <a href="pending_orders.html" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Pending Orders</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Payout Partner Lookup</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Print Order Form</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Manage Customers</div>
+              </a>
             </div>
             <!-- Pay Order Tools -->
             <div style="border-right:1px solid #f0f0f0;padding:0;">
@@ -631,9 +519,15 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
                 <span style="color:#555;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
                 <span style="font-size:11px;font-weight:800;color:#333;text-transform:uppercase;letter-spacing:0.5px;">Pay Order Tools</span>
               </div>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Download Orders</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Transmission Log</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Upload Payment Confirmation</a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Download Orders</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Transmission Log</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Upload Payment Confirmation</div>
+              </a>
             </div>
             <!-- Other -->
             <div style="padding:0;">
@@ -641,9 +535,15 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
                 <span style="color:#555;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
                 <span style="font-size:11px;font-weight:800;color:#333;text-transform:uppercase;letter-spacing:0.5px;">Other</span>
               </div>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Digital Receipts Manager</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Rate Board Display</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Request Equipment / Supplies</a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Digital Receipts Manager</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Rate Board Display</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Request Equipment / Supplies</div>
+              </a>
             </div>
           </div>
         </div>
@@ -679,10 +579,6 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="22" height="13" rx="2"/><path d="M1 10h22"/></svg>
               Pay Order
             </button>
-            <button class="rpt-pill" onclick="selectRptCat(this,'rpt-cc')">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="22" height="13" rx="2"/><path d="M1 10h22"/></svg>
-              Check Cashing
-            </button>
             <button class="rpt-pill" onclick="selectRptCat(this,'rpt-co')">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               Compliance
@@ -693,35 +589,46 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
           <div style="padding:12px 16px;">
             <div id="rpt-mt" class="rpt-panel">
               <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;">
-                <a href="account_statement.html" class="rpt-btn-item">Account Statement</a>
-                <a href="#" class="rpt-btn-item">Commission Report</a>
-                <a href="#" class="rpt-btn-item">Agent Commission Statement</a>
-                <a href="#" class="rpt-btn-item">Transaction Detail Report</a>
+                <a href="account_statement.html" class="dd-item">
+                  <div class="dd-label">Account Statement</div>
+                </a>
+                <a href="#" class="dd-item">
+                  <div class="dd-label">Commission Report</div>
+                </a>
+                <a href="#" class="dd-item">
+                  <div class="dd-label">Agent Commission Statement</div>
+                </a>
+                <a href="#" class="dd-item">
+                  <div class="dd-label">Transaction Detail Report</div>
+                </a>
               </div>
             </div>
 
             <div id="rpt-po" class="rpt-panel" style="display:none;">
               <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;">
-                <a href="#" class="rpt-btn-item">Orders Export</a>
-                <a href="#" class="rpt-btn-item">Paid Orders Report</a>
-                <a href="#" class="rpt-btn-item">Transaction Report</a>
-              </div>
-            </div>
-
-            <div id="rpt-cc" class="rpt-panel" style="display:none;">
-              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;">
-                <a href="#" class="rpt-btn-item">Check Reports</a>
-                <a href="#" class="rpt-btn-item">Check Deposit Report</a>
-                <a href="#" class="rpt-btn-item">Checks To Rescan</a>
-                <a href="#" class="rpt-btn-item">High Speed Batch Review</a>
+                <a href="#" class="dd-item">
+                  <div class="dd-label">Orders Export</div>
+                </a>
+                <a href="#" class="dd-item">
+                  <div class="dd-label">Paid Orders Report</div>
+                </a>
+                <a href="#" class="dd-item">
+                  <div class="dd-label">Transaction Report</div>
+                </a>
               </div>
             </div>
 
             <div id="rpt-co" class="rpt-panel" style="display:none;">
               <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;">
-                <a href="#" class="rpt-btn-item">Transaction Summary by Customer Risk (Money Transfer)</a>
-                <a href="#" class="rpt-btn-item">Transaction Summary by Customer Risk (Currency Exchange)</a>
-                <a href="#" class="rpt-btn-item">Unusual Order Report</a>
+                <a href="#" class="dd-item">
+                  <div class="dd-label">Transaction Summary by Customer Risk (Money Transfer)</div>
+                </a>
+                <a href="#" class="dd-item">
+                  <div class="dd-label">Transaction Summary by Customer Risk (Currency Exchange)</div>
+                </a>
+                <a href="#" class="dd-item">
+                  <div class="dd-label">Unusual Order Report</div>
+                </a>
               </div>
             </div>
           </div>
@@ -753,11 +660,21 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
                 <span style="color:#555;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
                 <span style="font-size:11px;font-weight:800;color:#333;text-transform:uppercase;letter-spacing:0.5px;">Application Support</span>
               </div>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Site Requirements</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Site Verifications</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">RDM Verification</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Downloads</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">About FxOnline</a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Site Requirements</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Site Verifications</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">RDM Verification</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Downloads</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">About FxOnline</div>
+              </a>
             </div>
             <!-- Help Desk -->
             <div style="border-right:1px solid #f0f0f0;padding:0;">
@@ -765,8 +682,12 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
                 <span style="color:#555;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
                 <span style="font-size:11px;font-weight:800;color:#333;text-transform:uppercase;letter-spacing:0.5px;">Help Desk</span>
               </div>
-              <a href="#" onclick="openLiveHelpPopup(); return false;" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Live Help</a>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Agent Documents</a>
+              <a href="#" onclick="openLiveHelpPopup(); return false;" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Live Help</div>
+              </a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Agent Documents</div>
+              </a>
             </div>
             <!-- Configuration Tools -->
             <div style="padding:0;">
@@ -774,7 +695,9 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
                 <span style="color:#555;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span>
                 <span style="font-size:11px;font-weight:800;color:#333;text-transform:uppercase;letter-spacing:0.5px;">Configuration Tools</span>
               </div>
-              <a href="#" style="display:block;padding:8px 18px;font-size:13px;color:#444;text-decoration:none;transition:background 0.1s,color 0.1s;font-family:Arial,sans-serif;" onmouseover="this.style.background='#fff8f3';this.style.color='#f60'" onmouseout="this.style.background='';this.style.color='#444'">Payment Terminal (Cloud)</a>
+              <a href="#" class="dd-item" style="padding:8px 18px;">
+                <div class="dd-label">Payment Terminal (Cloud)</div>
+              </a>
             </div>
           </div>
         </div>
@@ -792,10 +715,11 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
 
       <!-- Transaction Table — directly below rates in same left column -->
 
-      <!-- Transaction Table — Tabbed -->      <div class="card">
+      <!-- Transaction Table — Tabbed -->
+      <div class="card" style="background:#f8faff;border:2px solid rgba(26,79,160,0.4);box-shadow:0 4px 12px rgba(26,79,160,0.15),0 2px 4px rgba(0,0,0,0.08);border-radius:10px;">
 
         <!-- Card header -->
-        <div class="card-header" style="padding-bottom:10px;border-bottom:none;flex-wrap:wrap;gap:8px;">
+        <div class="card-header" style="padding-bottom:10px;border-bottom:none;flex-wrap:wrap;gap:8px;background:#f0f4ff;border-bottom:2px solid rgba(26,79,160,0.4);border-radius:8px 8px 0 0;">
           <div class="card-title" style="font-size:16px;">Transactions</div>
           <button onclick="window.location.href='transaction_search.html'" style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#1a4fa0;color:#fff;border:none;border-radius:6px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;white-space:nowrap;transition:background 0.15s;" onmouseover="this.style.background='#153d82'" onmouseout="this.style.background='#1a4fa0'">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -808,8 +732,6 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
         <div style="display:flex;align-items:center;padding:0 14px;border-bottom:2px solid #e0e0e0;margin-top:10px;gap:0;overflow-x:auto;">
           <button class="tx-tab active" id="tab-ch" onclick="switchTab('ch')">Compliance Hold <span class="tx-tab-count" id="count-ch"></span></button>
           <button class="tx-tab" id="tab-rf" onclick="switchTab('rf')">Ready for Refund <span class="tx-tab-count" id="count-rf"></span></button>
-          <button class="tx-tab" id="tab-cr" onclick="switchTab('cr')">Checks to Resubmit <span class="tx-tab-count" id="count-cr"></span></button>
-          <button class="tx-tab" id="tab-rc" onclick="switchTab('rc')">Returned Check <span class="tx-tab-count" id="count-rc"></span></button>
         </div>
 
         <!-- Table -->
@@ -821,10 +743,10 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
         </div>
       </div>
 
-      <!-- Exchange Rates — side-by-side layout matching screenshot -->
-      <div class="card" id="ratesCard" style="padding:0;overflow:hidden;">
+      <!-- Exchange Rates — side-by-side layout -->
+      <div class="card" id="ratesCard" style="padding:0;overflow:hidden;background:#fff9f5;border:2px solid rgba(255,102,0,0.4);box-shadow:0 4px 12px rgba(255,102,0,0.18),0 2px 4px rgba(0,0,0,0.08);border-radius:10px;">
         <!-- Header -->
-        <div class="card-header" style="padding:10px 14px 8px;">
+        <div class="card-header" style="padding:10px 14px 8px;background:#fff3ec;border-bottom:2px solid rgba(255,102,0,0.4);border-radius:8px 8px 0 0;">
           <div class="card-title">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
             Exchange Rates
@@ -836,7 +758,7 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
         <div style="display:flex;border-top:1px solid #f0f0f0;height:340px;">
 
           <!-- LEFT: country list -->
-          <div style="width:45%;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid #f0f0f0;">
+          <div style="width:30%;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid #f0f0f0;">
             <!-- Search -->
             <div style="padding:6px 9px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:5px;background:#fafafa;flex-shrink:0;">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -846,8 +768,8 @@ body { font-family: Arial, sans-serif; background: #f0f0f0; font-size: 14px; min
             <div id="ratesList" style="overflow-y:auto;flex:1;"></div>
           </div>
 
-          <!-- RIGHT: detail panel (empty when nothing selected) -->
-          <div id="rateDetailPane" style="width:55%;flex:1;overflow-y:auto;background:#fff;"></div>
+          <!-- RIGHT: detail panel -->
+          <div id="rateDetailPane" style="flex:1;overflow-y:auto;background:#fff;"></div>
 
         </div>
 
@@ -954,8 +876,6 @@ var txnData=[
 var pillMap={
   ch:'<span style="display:inline-block;padding:3px 9px;border-radius:5px;font-size:11.5px;font-weight:700;border:1.5px solid #d93535;color:#7a1f1f;background:#fff5f5;">Compliance Hold</span>',
   rf:'<span style="display:inline-block;padding:3px 9px;border-radius:5px;font-size:11.5px;font-weight:700;border:1.5px solid #22a64a;color:#1a5c2a;background:#f0fdf4;">Ready for Refund</span>',
-  cr:'<span style="display:inline-block;padding:3px 9px;border-radius:5px;font-size:11.5px;font-weight:700;border:1.5px solid #d4a017;color:#7a5700;background:#fffbeb;">Checks to Resubmit</span>',
-  rc:'<span style="display:inline-block;padding:3px 9px;border-radius:5px;font-size:11.5px;font-weight:700;border:1.5px solid #888;color:#555;background:#f5f5f5;">Returned Check</span>',
 };
 var activeTab='ch';
 
@@ -1011,25 +931,6 @@ function renderTxn(key){
       '</td>'+
     '</tr>';
   }
-}
-
-function renderAllTxn(key){
-  var rows=txnData.filter(function(r){return r.st===key;});
-  var body=document.getElementById('txBody');
-  body.innerHTML=rows.map(function(r){
-    return'<tr>'+
-      '<td><a href="#" style="color:#1a4fa0;font-weight:700;text-decoration:none;font-size:13px;white-space:nowrap;">'+r.id+'</a></td>'+
-      '<td style="color:#666;">'+r.seq+'</td>'+
-      '<td style="font-weight:600;color:#222;">'+r.c+'</td>'+
-      '<td style="color:#444;">'+r.r+'</td>'+
-      '<td style="text-align:right;font-weight:600;">'+r.s+'</td>'+
-      '<td style="text-align:right;font-weight:600;">'+r.rv+'</td>'+
-      '<td style="text-align:center;">'+(pillMap[r.st]||r.st)+'</td>'+
-      '<td style="text-align:center;white-space:nowrap;">'+
-        buildActionsBtn(r.id, r.st)+
-      '</td>'+
-    '</tr>';
-  }).join('');
 }
 
 
@@ -1143,7 +1044,7 @@ function openRateDetail(idx){
 
 function renderDetailPane(idx){
   var r=filteredRates[idx];
-  var methods=['Deposit','Cash','Mobile','ATM'];
+  var methods=['Bank Deposit','Cash Pick-up','Mobile Wallet'];
   var pane=document.getElementById('rateDetailPane');
   pane.innerHTML=
     // Country header bar (white with orange flag highlight)
@@ -1162,8 +1063,8 @@ function renderDetailPane(idx){
     '<div style="display:flex;gap:5px;padding:10px 14px;border-bottom:1px solid #f0f0f0;">'+
       methods.map(function(m,i){
         var act=i===activePayMethod;
-        return'<button onclick="setDetailPayMethod('+i+')" style="flex:1;padding:5px 2px;font-size:11px;font-weight:700;border-radius:4px;cursor:pointer;font-family:Arial,sans-serif;'+
-          (act?'background:#fff;color:#333;border:2px solid #333;':'background:#fff;color:#aaa;border:1.5px solid #ccc;')+'">'+m+'</button>';
+        return'<button onclick="setDetailPayMethod('+i+')" style="flex:1;padding:5px 2px;font-size:11px;border-radius:4px;cursor:pointer;font-family:system-ui, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;'+
+          (act?'background:#fff;color:#333;border:2px solid #333;font-weight:600;':'background:#fff;color:#aaa;border:1px solid #ddd;font-weight:500;')+'" onmouseover="'+(act?'':'this.style.background=\'#f8f8f8\'')+'" onmouseout="'+(act?'':'this.style.background=\'#fff\'')+'">'+m+'</button>';
       }).join('')+
     '</div>'+
     // Banks list
@@ -1230,14 +1131,6 @@ function selectRptCat(btn, panelId) {
   document.getElementById(panelId).style.display='block';
 }
 
-
-function toggleWidget(bodyId, chevId){
-  var body = document.getElementById(bodyId);
-  var chev = document.getElementById(chevId);
-  var open = body.style.display !== 'none';
-  body.style.display = open ? 'none' : '';
-  chev.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
-}
 
 
 /* ══════════════════════════════════════════════════
@@ -1353,13 +1246,6 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// Pill switchers
-function selectTlsCat(btn, panelId) {
-  document.querySelectorAll('.tls-pill').forEach(function(p){ p.classList.remove('active'); });
-  btn.classList.add('active');
-  document.querySelectorAll('.tls-panel').forEach(function(p){ p.style.display='none'; });
-  document.getElementById(panelId).style.display='block';
-}
 
 function selectHlpCat(btn, panelId) {
   document.querySelectorAll('.hlp-pill').forEach(function(p){ p.classList.remove('active'); });
